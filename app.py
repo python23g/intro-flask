@@ -2,16 +2,24 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 @app.route("/")
-def hello_world():
-    return "<h1>Hello, World!</h1>"
+def index():
+    return "<h1>Welcome!</h1>"
 
-@app.route('/salom')
-@app.route('/ok')
-@app.route("/hi")
-def hi():
-    return "<h1>Hi, World!</h1>"
+@app.route("/news/")
+def news():
+    return "<h1>News!</h1>"
+
+@app.route("/home/")
+def home():
+    return "<h1>Home!</h1>"
+
+@app.route("/about/")
+def about():
+    return "<h1>About!</h1>"
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run()
+    
