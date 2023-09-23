@@ -3,43 +3,19 @@ from flask import Flask, request
 app = Flask(__name__)
 
 
-@app.route("/")
-def index():
-    return '''<form action="http://127.0.0.1:5000/form">
-            <label>a:</label><br>
-            <input type="text"  name="a" value="0"><br>
-            <label>b:</label><br>
-            <input type="text" name="b" value="0"><br><br>
-            <label>operate:</label><br>
-            <input type="text" name="op" value="+"><br><br>
-            <input type="submit" value="Submit">
-            </form>'''
+@app.route("/hi/<username>/")
+def index(username):
+    
+    print(username)
 
-@app.route("/form")
-def news():
+    return f"<h1>hi, {username}</h1>"
 
-    params = request.args
+@app.route("/a/<int:a>/<int:b>/")
+def int_a(a, b):
 
-    # get a and b
-    a = params.get('a')
-    b = params.get('b')
+    print(a, b)
 
-    # get op
-    op = params.get('op')
-
-    if op == "+":
-        return f"<h1>{a} + {b} = {int(a) + int(b)}</h1>"
-
-    if op == "-":
-        return f"<h1>{a} - {b} = {int(a) - int(b)}</h1>"
-
-    if op == "*":
-        return f"<h1>{a} * {b} = {int(a) * int(b)}</h1>"
-
-    if op == "/":
-        if int(b) == 0:
-            return "can not divide by 0."
-        return f"<h1>{a} / {b} = {round(int(a) / int(b), 2)}</h1>"
+    return f"<h1>hi, {a}, {b}</h1>"
 
 
 if __name__ == "__main__":
