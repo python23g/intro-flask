@@ -1,14 +1,12 @@
 from flask import Flask, request
 
+
 app = Flask(__name__)
 
 
 @app.route("/hi/<username>/")
 def index(username):
-    
-    print(username)
-
-    return f"<h1>hi, {username}</h1>"
+    pass
 
 @app.route("/a/<int:a>/<int:b>/")
 def int_a(a, b):
