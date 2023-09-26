@@ -1,19 +1,14 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 
 app = Flask(__name__)
 
 
-@app.route("/hi/<username>/")
-def index(username):
-    pass
+@app.route("/")
+def index():
 
-@app.route("/a/<int:a>/<int:b>/")
-def int_a(a, b):
+    return render_template('index.html')
 
-    print(a, b)
-
-    return f"<h1>hi, {a}, {b}</h1>"
 
 
 if __name__ == "__main__":

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random User Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #007bff;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      margin-bottom: 10px;
+    }
+
+    .user-info {
+      text-align: center;
+    }
+
+    .users {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 20px;
+    }
+
+    .num {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #007bff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Random User Generator</h1>
+  </header>
+
+  <div class="users">
+    <div class="container">
+      <div class="num">1</div>
+
+      <div class="user-info">
+
+        <img id="avatar" src="https://randomuser.me/api/portraits/men/85.jpg" alt="User Avatar">
+        <h2 id="name">Gary Washington</h2>
+        <p>Age 12</p>
+        <p>Gender male</p>
+        <p id="email"></p>
+        <p id="location">at</p>
+
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
