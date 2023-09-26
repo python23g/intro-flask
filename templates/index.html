@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Random User Generator</title>
+  <title>
+    {{ context.title }}
+  </title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -58,25 +60,26 @@
 </head>
 <body>
   <header>
-    <h1>Random User Generator</h1>
+    <h1>Random Users</h1>
   </header>
 
   <div class="users">
-    <div class="container">
-      <div class="num">1</div>
+    {% for user in context.users %}
+      <div class="container">
+        <div class="num"> {{ user.id }} </div>
 
-      <div class="user-info">
+        <div class="user-info">
 
-        <img id="avatar" src="https://randomuser.me/api/portraits/men/85.jpg" alt="User Avatar">
-        <h2 id="name">Gary Washington</h2>
-        <p>Age 12</p>
-        <p>Gender male</p>
-        <p id="email"></p>
-        <p id="location">at</p>
+          <img id="avatar" src="{{ user.link }}" alt="User Avatar">
+          <h2 id="name">{{ user.first }} {{ user.last }}</h2>
+          <p>Age {{ user.age }}</p>
+          <p>Gender {{ user.gender }}</p>
+          <p id="email">{{ user.email }}</p>
+          <p id="location">live in {{ user.location }}</p>
 
-      </div>
-
+        </div>
     </div>
+    {% endfor %}
   </div>
 </body>
 </html>
